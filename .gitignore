@@ -1,0 +1,38 @@
+node_modules/
+.env
+client/node_modules/
+server/node_modules/
+
+
+16, 26, 33, 36, 37, 38
+
+https://drive.google.com/file/d/1BKTwqyHrv9an-w4H8sHmoDm_JxeP30v_/view?usp=sharing
+
+
+live link:
+
+https://ai-powered-exam-notes-generator-server-k96g.onrender.com  server
+
+https://ai-powered-exam-notes-generator-client-po5d.onrender.com  client
+
+introduction:
+
+I am Pragya Singh, currently pursuing an Integrated MCA in AI from Parul University with a CGPA of 7.76.
+
+I have strong interest in full-stack development and AI-powered applications. I have built projects like PrepMind AI, which is a full-stack platform that generates exam notes using Gemini API and also integrates Stripe payments.
+
+I have experience working with the MERN stack and deploying applications. I enjoy building real-world projects and improving problem-solving skills.
+
+Currently, I am focusing on strengthening my DSA and backend skills to become a job-ready full-stack developer.
+
+Project: 
+
+PrepMind AI is an AI-powered exam notes generator built using MERN stack.
+
+Users can upload content or enter topics, and the system uses Gemini API to generate structured notes.
+
+On the backend, Node.js handles API requests and integrates with Gemini API. MongoDB stores user data and generated notes.
+
+I also implemented Stripe for payment handling, allowing users to unlock premium features.
+
+One challenge I faced was managing API response delays, which I solved using proper error handling and loading states.
