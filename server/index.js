@@ -9,35 +9,39 @@ import userRoute from "./routes/userRoute.js";
 import creditsRoute from "./routes/creditsRoute.js";
 import generateRoute from "./routes/generateRoute.js";
 import pdfRoute from "./routes/pdfRoute.js";
-// import stripeWebhook from "./routes/stripeWebhook.js";
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 8000;
 
+// ✅ CORS first — before everything
+app.use(
+  cors({
+    origin: [
+      "https://ai-powered-exam-notes-generator-client-po5d.onrender.com",
+      "http://localhost:5173",
+      "http://localhost:3000",
+    ],
+    credentials: true,
+  })
+);
+
+app.use(cookieParser());
+
 // 🔥 Stripe Webhook (MUST be before express.json)
 app.post(
   "/api/credits/webhook",
   express.raw({ type: "application/json" }),
   (req, res) => {
-    // TODO: Add your stripeWebhook logic here
     console.log("Webhook received");
     res.sendStatus(200);
   }
 );
 
-// ✅ Middlewares
-app.use(
-  cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
-    credentials: true,
-  })
-);
-
+// ✅ Body parsers
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
 
 // ✅ Test Route
 app.get("/", (req, res) => {
@@ -59,7 +63,7 @@ app.use((req, res) => {
   res.status(404).json({ message: "Route not found" });
 });
 
-// 🔥 Global Error Handler (IMPORTANT)
+// 🔥 Global Error Handler
 app.use((err, req, res, next) => {
   console.error("Error:", err.message);
   res.status(err.status || 500).json({
