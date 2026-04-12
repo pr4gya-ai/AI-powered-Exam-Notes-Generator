@@ -11,11 +11,11 @@ import './index.css'
 import { getCurrentUser } from './services/api.js'
 import { useDispatch, useSelector } from 'react-redux'
 
-// export const serverURL = "https://ai-powered-exam-notes-generator.onrender.com"
+export const serverURL = "https://ai-powered-exam-notes-generator-server-k96g.onrender.com"
 
 
 function App() {
-  const serverURL = "http://localhost:8000"
+  // const serverURL = "http://localhost:8000"
 
   const dispatch = useDispatch()
   const { userData } = useSelector((state) => state.user)
